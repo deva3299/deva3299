@@ -1,0 +1,28 @@
+datagroup trigger - using datagroup trigger we can convert derived table into persistent derived table
+
+interval trigger - in interval we can defines the time period it will trigger based on the time
+
+set - group of fields
+
+drill fields - it also work like as sets . we can mention  drill fields under dimenstion and measures
+
+default join- left join
+
+default relationship - many to one
+
+include - using parameter for to build relationship b\w view folder to model
+
+access grant - by using access grant we can restrict data for only column level
+
+a model comprrises  a combinmation of  explores and views
+
+
+
+drill fields
+
+drill set
+
+measure: count {             
+    type: count                
+    drill_fields: [drill_set*]
+
