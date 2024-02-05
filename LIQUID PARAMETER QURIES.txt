@@ -1,0 +1,42 @@
+dimension: product_image {
+  sql: ${product_id} ;;
+  html: <img src="https://www.altostrat.com/product_images/{{ value }}.jpg" /> ;;
+}
+
+===============
+dimension: artist_name {
+  sql: ${TABLE}.artist_name ;;
+  link: {
+    label: "Google"
+    url: "https://www.google.com/search?q={{ value }}"
+    icon_url: "https://google.com/favicon.ico"
+  }
+}
+
+====================
+
+sql_table_name:
+  {% if event.created_date._in_query %}
+    event_by_day
+  {% elsif event.created_week._in_query %}
+    event_by_week
+  {% else %}
+    event
+  {% endif %} ;;
+
+==============
+
+dimension: email {
+  label: "{% if _model._name == 'thelook' %} Looker Registered Email Address {% else %} External Email Address {% endif %}"
+  type: string
+  sql: ${TABLE}.email ;;
+}
+
+=============
+
+dimension: linked_name {
+  sql: ${name} ;;
+  html: <a href="{{ website.url._value }}" target="_blank">{{ value }}</a> ;;
+}
+
+===========
